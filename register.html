@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>সদস্য নিবন্ধন | ভাদেরা উত্তর পাড়া সমিতি</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #eef4f1;
+}
+
+.container {
+    max-width: 450px;
+    margin: 25px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+h2 {
+    text-align: center;
+    color: #075e46;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    margin-top: 17px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 7px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background: #075e46;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.notice {
+    margin-top: 18px;
+    padding: 12px;
+    background: #fff7ed;
+    color: #9a3412;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: #075e46;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>ভাদেরা উত্তর পাড়া সমিতি</h2>
+
+<p class="subtitle">নতুন সদস্য নিবন্ধন ফরম</p>
+
+<form id="registerForm">
+
+<label>সদস্যের পূর্ণ নাম</label>
+<input
+type="text"
+id="name"
+placeholder="আপনার সম্পূর্ণ নাম"
+required
+>
+
+<label>মোবাইল নম্বর</label>
+<input
+type="tel"
+id="phone"
+placeholder="01XXXXXXXXX"
+pattern="01[3-9][0-9]{8}"
+required
+>
+
+<label>পাসওয়ার্ড</label>
+<input
+type="password"
+id="password"
+placeholder="কমপক্ষে ১২ অক্ষর"
+required
+>
+
+<label>পাসওয়ার্ড নিশ্চিত করুন</label>
+<input
+type="password"
+id="confirmPassword"
+placeholder="আবার পাসওয়ার্ড লিখুন"
+required
+>
+
+<button type="submit">
+নিবন্ধনের আবেদন করুন
+</button>
+
+</form>
+
+<div class="notice">
+<strong>নিবন্ধন সংক্রান্ত তথ্য:</strong><br>
+আপনার আবেদন জমা দেওয়ার পর সমিতির অ্যাডমিন যাচাই করবেন। অনুমোদন না পাওয়া পর্যন্ত সদস্য অ্যাকাউন্ট সক্রিয় হবে না।
+</div>
+
+<div class="login">
+আগে সদস্য হয়ে থাকলে
+<a href="login.html">লগইন করুন</a>
+</div>
+
+</div>
+
+<script>
+document.getElementById("registerForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    const strongPassword =
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{12,}$/;
+
+    if (!strongPassword.test(password)) {
+        alert("পাসওয়ার্ডে কমপক্ষে ১২ অক্ষর, একটি বড় হাতের অক্ষর, একটি ছোট হাতের অক্ষর, একটি সংখ্যা ও একটি বিশেষ চিহ্ন থাকতে হবে।");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("দুটি পাসওয়ার্ড মিলছে না।");
+        return;
+    }
+
+    alert("নিবন্ধন ব্যবস্থা এখনো Firebase-এর সঙ্গে সংযুক্ত হয়নি। পরবর্তী ধাপে সংযোগ করা হবে।");
+
+});
+</script>
+
+</body>
+</html>
