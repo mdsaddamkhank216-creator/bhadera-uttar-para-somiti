@@ -148,35 +148,6 @@ required
 
 </div>
 
-<script>
-document.getElementById("registerForm")
-.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword =
-        document.getElementById("confirmPassword").value;
-
-    const strongPassword =
-        /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{12,}$/;
-
-    if (!strongPassword.test(password)) {
-        alert("পাসওয়ার্ডে কমপক্ষে ১২ অক্ষর, একটি বড় হাতের অক্ষর, একটি ছোট হাতের অক্ষর, একটি সংখ্যা ও একটি বিশেষ চিহ্ন থাকতে হবে।");
-        return;
-    }
-
-    if (password !== confirmPassword) {
-        alert("দুটি পাসওয়ার্ড মিলছে না।");
-        return;
-    }
-
-    alert("নিবন্ধন ব্যবস্থা এখনো Firebase-এর সঙ্গে সংযুক্ত হয়নি। পরবর্তী ধাপে সংযোগ করা হবে।");
-
-});
-</script>
-
+<script type="module" src="register.js"></script>
 </body>
 </html>
