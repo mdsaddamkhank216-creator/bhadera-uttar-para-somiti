@@ -62,9 +62,20 @@
     <p id="message">আপনার তথ্য যাচাই করা হচ্ছে...</p>
 
     <div class="info">
-      <p><strong>সদস্যের নাম:</strong> <span id="memberName">—</span></p>
-      <p><strong>মোবাইল নম্বর:</strong> <span id="memberPhone">—</span></p>
-      <p><strong>সদস্যের অবস্থা:</strong> <span id="memberStatus">—</span></p>
+      <p>
+        <strong>সদস্যের নাম:</strong>
+        <span id="memberName">—</span>
+      </p>
+
+      <p>
+        <strong>মোবাইল নম্বর:</strong>
+        <span id="memberPhone">—</span>
+      </p>
+
+      <p>
+        <strong>সদস্যের অবস্থা:</strong>
+        <span id="memberStatus">—</span>
+      </p>
     </div>
 
     <button id="logoutButton">লগআউট</button>
@@ -105,10 +116,39 @@
 
         if (memberData.status !== "approved") {
           await signOut(auth);
+
           alert("আপনার সদস্যপদ এখনো অনুমোদিত হয়নি।");
+
           window.location.href = "login.html";
           return;
         }
 
         document.getElementById("memberName").textContent =
-          member
+          memberData.name || "নাম পাওয়া যায়নি";
+
+        document.getElementById("memberPhone").textContent =
+          memberData.phone || "নম্বর পাওয়া যায়নি";
+
+        document.getElementById("memberStatus").textContent =
+          "অনুমোদিত";
+
+        message.textContent =
+          "স্বাগতম! আপনার সদস্য ড্যাশবোর্ড প্রস্তুত।";
+
+      } catch (error) {
+        console.error(error);
+
+        message.textContent =
+          "তথ্য লোড করা যায়নি। আবার চেষ্টা করুন।";
+      }
+    });
+
+    document.getElementById("logoutButton")
+      .addEventListener("click", async () => {
+        await signOut(auth);
+        window.location.href = "login.html";
+      });
+  </script>
+
+</body>
+</html>
