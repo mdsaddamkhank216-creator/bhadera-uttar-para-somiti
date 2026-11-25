@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>সদস্য লগইন | ভাদেরা উত্তর পাড়া সমিতি</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #eef4f1;
+}
+
+.container {
+    max-width: 450px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+h2 {
+    text-align: center;
+    color: #075e46;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    margin-top: 17px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 7px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background: #075e46;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+}
+
+.message {
+    margin-top: 15px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: #075e46;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>ভাদেরা উত্তর পাড়া সমিতি</h2>
+
+<p class="subtitle">সদস্য লগইন</p>
+
+<form id="loginForm">
+
+<label>মোবাইল নম্বর</label>
+<input
+type="tel"
+id="phone"
+placeholder="01XXXXXXXXX"
+pattern="01[3-9][0-9]{8}"
+required
+>
+
+<label>পাসওয়ার্ড</label>
+<input
+type="password"
+id="password"
+placeholder="আপনার পাসওয়ার্ড"
+required
+>
+
+<button type="submit" id="loginButton">
+লগইন করুন
+</button>
+
+</form>
+
+<div id="message" class="message"></div>
+
+<div class="links">
+<a href="register.html">নতুন সদস্য নিবন্ধন</a>
+<br><br>
+<a href="index.html">হোম পেজে ফিরে যান</a>
+</div>
+
+</div>
+
+<script type="module" src="login.js"></script>
+
+</body>
+</html>
